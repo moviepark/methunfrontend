@@ -53,7 +53,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
         showMsg("Login successful! Redirecting to dashboard...", "success");
         setTimeout(() => {
-            window.location.href = "../db/db.html";
+            window.location.href = "../db.html";
         }, 900);
 
     } catch (error) {

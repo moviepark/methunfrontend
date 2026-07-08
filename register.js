@@ -57,7 +57,7 @@ document.getElementById("registerForm").addEventListener("submit", async (e) => 
 
         showMsg("Account created successfully! Redirecting to login...", "success");
         setTimeout(() => {
-            window.location.href = "../login/login.html";
+            window.location.href = "../login.html";
         }, 1200);
 
     } catch (error) {

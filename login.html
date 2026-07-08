@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VoteSphere — Login</title>
+<link rel="stylesheet" href="login.css" />
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="../home/home.html" class="brand">Vote<span>Sphere</span></a>
+    <div class="nav-links">
+        <a href="../home/home.html">Home</a>
+        <a href="../about/about.html">About Us</a>
+        <a href="../db/db.html">Dashboard</a>
+        <a href="../register/index.html">Register</a>
+    </div>
+</nav>
+
+<div class="auth-wrap">
+    <div class="auth-card">
+        <h1>Welcome Back</h1>
+        <p class="sub">Login to access your VoteSphere dashboard.</p>
+
+        <form id="loginForm">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="you@example.com" required />
+
+            <label>Password</label>
+            <input type="password" id="password" placeholder="••••••••" required />
+
+            <button type="submit" class="btn-primary full">Login</button>
+        </form>
+
+        <div id="formMsg" class="msg"></div>
+
+        <p class="alt">Don't have an account? <a href="../register/index.html">Register here</a></p>
+    </div>
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>

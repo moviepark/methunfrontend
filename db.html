@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VoteSphere — Dashboard</title>
+<link rel="stylesheet" href="db.css" />
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="../home/home.html" class="brand">Vote<span>Sphere</span></a>
+    <div class="nav-links">
+        <a href="../home/home.html">Home</a>
+        <a href="../about/about.html">About Us</a>
+        <a href="../db/db.html" class="active">Dashboard</a>
+    </div>
+    <div class="user-box">
+        <span id="userBadge" class="badge">Not logged in</span>
+        <button id="logoutBtn" class="btn-logout">Logout</button>
+    </div>
+</nav>
+
+<div class="dashboard">
+
+    <div class="dash-header">
+        <h1>Operations Dashboard</h1>
+        <p>Create, browse and remove records across all four VoteSphere modules.</p>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="events">🗓️ Events</button>
+        <button class="tab-btn" data-tab="voters">🧑‍🤝‍🧑 Voters</button>
+        <button class="tab-btn" data-tab="shifts">🕒 Shifts</button>
+        <button class="tab-btn" data-tab="interactions">💬 Interactions</button>
+    </div>
+
+    <!-- =============== EVENTS =============== -->
+    <section class="panel active" id="panel-events">
+        <div class="panel-grid">
+
+            <div class="card">
+                <h2>Create Event</h2>
+                <label>Event Title</label>
+                <input id="ev_title" placeholder="Youth Outreach Rally" />
+
+                <label>Event Type</label>
+                <select id="ev_type">
+                    <option value="RALLY">RALLY</option>
+                    <option value="DOOR_TO_DOOR">DOOR_TO_DOOR</option>
+                    <option value="PHONE_BANKING">PHONE_BANKING</option>
+                    <option value="COMMUNITY_MEET">COMMUNITY_MEET</option>
+                </select>
+
+                <label>Location</label>
+                <input id="ev_location" placeholder="Central Ground" />
+
+                <label>Scheduled Date</label>
+                <input id="ev_date" type="datetime-local" />
+
+                <label>Target Capacity</label>
+                <input id="ev_capacity" type="number" placeholder="500" />
+
+                <button class="btn create" data-action="events-create">Create Event</button>
+            </div>
+
+            <div class="card">
+                <h2>Get By ID</h2>
+                <label>Event ID</label>
+                <input id="ev_getid" placeholder="1" />
+                <button class="btn view" data-action="events-getid">Fetch Event</button>
+
+                <hr />
+
+                <h2>Delete Event</h2>
+                <label>Event ID</label>
+                <input id="ev_delid" placeholder="1" />
+                <button class="btn danger" data-action="events-delete">Delete Event</button>
+            </div>
+
+            <div class="card wide">
+                <div class="card-head">
+                    <h2>All Events</h2>
+                    <button class="btn view small" data-action="events-getall">Refresh List</button>
+                </div>
+                <div class="table-wrap">
+                    <table id="ev_table">
+                        <thead><tr><th>ID</th><th>Title</th><th>Type</th><th>Location</th><th>Date</th><th>Capacity</th></tr></thead>
+                        <tbody><tr><td colspan="6" class="empty">No data loaded yet.</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =============== VOTERS =============== -->
+    <section class="panel" id="panel-voters">
+        <div class="panel-grid">
+
+            <div class="card">
+                <h2>Create Voter Profile</h2>
+                <label>First Name</label>
+                <input id="v_first" placeholder="Ravi" />
+
+                <label>Last Name</label>
+                <input id="v_last" placeholder="Kumar" />
+
+                <label>Electoral District</label>
+                <input id="v_district" placeholder="North District" />
+
+                <label>Contact Number</label>
+                <input id="v_contact" placeholder="9000090000" />
+
+                <label>Support Score</label>
+                <input id="v_score" type="number" placeholder="50" />
+
+                <label>Engagement Status</label>
+                <select id="v_status">
+                    <option value="UNCONTACTED">UNCONTACTED</option>
+                    <option value="CONTACTED">CONTACTED</option>
+                    <option value="FOLLOW_UP_REQUIRED">FOLLOW_UP_REQUIRED</option>
+                    <option value="CONVERTED">CONVERTED</option>
+                </select>
+
+                <button class="btn create" data-action="voters-create">Create Voter</button>
+            </div>
+
+            <div class="card">
+                <h2>Get By ID</h2>
+                <label>Voter ID</label>
+                <input id="v_getid" placeholder="1" />
+                <button class="btn view" data-action="voters-getid">Fetch Voter</button>
+
+                <hr />
+
+                <h2>Delete Voter</h2>
+                <label>Voter ID</label>
+                <input id="v_delid" placeholder="1" />
+                <button class="btn danger" data-action="voters-delete">Delete Voter</button>
+            </div>
+
+            <div class="card wide">
+                <div class="card-head">
+                    <h2>All Voters</h2>
+                    <button class="btn view small" data-action="voters-getall">Refresh List</button>
+                </div>
+                <div class="table-wrap">
+                    <table id="v_table">
+                        <thead><tr><th>ID</th><th>Name</th><th>District</th><th>Contact</th><th>Score</th><th>Status</th></tr></thead>
+                        <tbody><tr><td colspan="6" class="empty">No data loaded yet.</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =============== SHIFTS =============== -->
+    <section class="panel" id="panel-shifts">
+        <div class="panel-grid">
+
+            <div class="card">
+                <h2>Create Shift</h2>
+                <label>Event ID</label>
+                <input id="s_eventid" placeholder="1" />
+
+                <label>Start Time</label>
+                <input id="s_start" type="datetime-local" />
+
+                <label>End Time</label>
+                <input id="s_end" type="datetime-local" />
+
+                <label>Shift Status</label>
+                <select id="s_status">
+                    <option value="OPEN">OPEN</option>
+                    <option value="RESERVED">RESERVED</option>
+                    <option value="COMPLETED">COMPLETED</option>
+                    <option value="CANCELLED">CANCELLED</option>
+                </select>
+
+                <button class="btn create" data-action="shifts-create">Create Shift</button>
+
+                <hr />
+
+                <h2>Reserve Shift</h2>
+                <label>Shift ID</label>
+                <input id="s_reserveid" placeholder="1" />
+                <label>Volunteer Account ID</label>
+                <input id="s_reserveacc" placeholder="3" />
+                <button class="btn accent" data-action="shifts-reserve">Reserve Shift</button>
+            </div>
+
+            <div class="card">
+                <h2>Get By ID</h2>
+                <label>Shift ID</label>
+                <input id="s_getid" placeholder="1" />
+                <button class="btn view" data-action="shifts-getid">Fetch Shift</button>
+
+                <hr />
+
+                <h2>Delete Shift</h2>
+                <label>Shift ID</label>
+                <input id="s_delid" placeholder="1" />
+                <button class="btn danger" data-action="shifts-delete">Delete Shift</button>
+            </div>
+
+            <div class="card wide">
+                <div class="card-head">
+                    <h2>All Shifts</h2>
+                    <button class="btn view small" data-action="shifts-getall">Refresh List</button>
+                </div>
+                <div class="table-wrap">
+                    <table id="s_table">
+                        <thead><tr><th>ID</th><th>Event ID</th><th>Start</th><th>End</th><th>Status</th></tr></thead>
+                        <tbody><tr><td colspan="5" class="empty">No data loaded yet.</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =============== INTERACTIONS =============== -->
+    <section class="panel" id="panel-interactions">
+        <div class="panel-grid">
+
+            <div class="card">
+                <h2>Log Interaction</h2>
+                <label>Voter ID</label>
+                <input id="i_voterid" placeholder="1" />
+
+                <label>Volunteer ID</label>
+                <input id="i_volid" placeholder="3" />
+
+                <label>Interaction Channel</label>
+                <select id="i_channel">
+                    <option value="CALL">CALL</option>
+                    <option value="SMS">SMS</option>
+                    <option value="DOOR_VISIT">DOOR_VISIT</option>
+                    <option value="EMAIL">EMAIL</option>
+                </select>
+
+                <label>Sentiment Detected</label>
+                <select id="i_sentiment">
+                    <option value="LEANING">LEANING</option>
+                    <option value="SUPPORTIVE">SUPPORTIVE</option>
+                    <option value="OPPOSED">OPPOSED</option>
+                    <option value="UNDECIDED">UNDECIDED</option>
+                </select>
+
+                <label>Policy Issue Tag</label>
+                <input id="i_tag" placeholder="Jobs" />
+
+                <label>Notes</label>
+                <textarea id="i_notes" placeholder="Voter requested follow-up..."></textarea>
+
+                <button class="btn create" data-action="interactions-create">Log Interaction</button>
+            </div>
+
+            <div class="card">
+                <h2>Get By ID</h2>
+                <label>Interaction ID</label>
+                <input id="i_getid" placeholder="1" />
+                <button class="btn view" data-action="interactions-getid">Fetch Interaction</button>
+
+                <hr />
+
+                <h2>Delete Interaction</h2>
+                <label>Interaction ID</label>
+                <input id="i_delid" placeholder="1" />
+                <button class="btn danger" data-action="interactions-delete">Delete Interaction</button>
+            </div>
+
+            <div class="card wide">
+                <div class="card-head">
+                    <h2>All Interactions</h2>
+                    <button class="btn view small" data-action="interactions-getall">Refresh List</button>
+                </div>
+                <div class="table-wrap">
+                    <table id="i_table">
+                        <thead><tr><th>ID</th><th>Voter</th><th>Volunteer</th><th>Channel</th><th>Sentiment</th><th>Tag</th></tr></thead>
+                        <tbody><tr><td colspan="6" class="empty">No data loaded yet.</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="response-box">
+        <div class="response-head">
+            <h2>API Response</h2>
+            <button class="btn view small" id="clearResult">Clear</button>
+        </div>
+        <pre id="result">No API called yet.</pre>
+    </div>
+
+</div>
+
+<script src="db.js"></script>
+</body>
+</html>

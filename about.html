@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VoteSphere — About Us</title>
+<link rel="stylesheet" href="about.css" />
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="../home/home.html" class="brand">Vote<span>Sphere</span></a>
+    <div class="nav-links">
+        <a href="../home/home.html">Home</a>
+        <a href="../about/about.html" class="active">About Us</a>
+        <a href="../db/db.html">Dashboard</a>
+        <a href="../login/login.html">Login</a>
+        <a href="../register/index.html" class="btn-nav">Register</a>
+    </div>
+</nav>
+
+<header class="page-header">
+    <h1>About VoteSphere</h1>
+    <p>A unified operations platform for modern political campaigns.</p>
+</header>
+
+<section class="content">
+    <div class="content-card">
+        <h2>Our Mission</h2>
+        <p>VoteSphere exists to give campaign teams — directors, organizers and volunteers — one reliable
+            place to plan outreach, manage voter relationships, coordinate shifts, and capture every
+            conversation that happens on the ground. We believe better data discipline wins better campaigns.</p>
+    </div>
+
+    <div class="content-card">
+        <h2>How It Works</h2>
+        <p>Every account is assigned a role that is enforced by our Spring Security backend. The frontend
+            reflects what each role can do, but the final authority always lives on the server — meaning
+            the platform stays secure even if someone tries to bypass the interface.</p>
+    </div>
+
+    <div class="role-table">
+        <h2>Roles &amp; Permissions</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th>Events</th>
+                    <th>Voters</th>
+                    <th>Shifts</th>
+                    <th>Interactions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="role-name admin">Campaign Director</td>
+                    <td>Full Access</td>
+                    <td>Full Access</td>
+                    <td>Full Access</td>
+                    <td>Full Access</td>
+                </tr>
+                <tr>
+                    <td class="role-name">Field Organizer</td>
+                    <td>Create / View</td>
+                    <td>Create / View</td>
+                    <td>Create / View</td>
+                    <td>View</td>
+                </tr>
+                <tr>
+                    <td class="role-name">Outreach Volunteer</td>
+                    <td>View</td>
+                    <td>View</td>
+                    <td>Reserve / View</td>
+                    <td>Log / View</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="note">Campaign Director is the platform administrator and holds every privilege
+            across all modules, including delete operations.</p>
+    </div>
+
+    <div class="content-card">
+        <h2>Why VoteSphere</h2>
+        <ul class="why-list">
+            <li>Single dashboard for all four core operations</li>
+            <li>Role-aware interface backed by real server-side security</li>
+            <li>Clean, fast record management — create, view, and remove in seconds</li>
+            <li>Built for teams that move quickly during election season</li>
+        </ul>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2026 VoteSphere. All rights reserved.</p>
+    <div class="footer-links">
+        <a href="../home/home.html">Home</a>
+        <a href="../login/login.html">Login</a>
+        <a href="../register/index.html">Register</a>
+        <a href="../db/db.html">Dashboard</a>
+    </div>
+</footer>
+
+<script src="about.js"></script>
+</body>
+</html>

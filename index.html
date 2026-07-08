@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VoteSphere — Register</title>
+<link rel="stylesheet" href="register.css" />
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="../home/home.html" class="brand">Vote<span>Sphere</span></a>
+    <div class="nav-links">
+        <a href="../home/home.html">Home</a>
+        <a href="../about/about.html">About Us</a>
+        <a href="../db/db.html">Dashboard</a>
+        <a href="../login/login.html">Login</a>
+    </div>
+</nav>
+
+<div class="auth-wrap">
+    <div class="auth-card">
+        <h1>Create Your Account</h1>
+        <p class="sub">Join VoteSphere and pick the role that matches your job on the campaign.</p>
+
+        <form id="registerForm">
+            <div class="grid2">
+                <div>
+                    <label>Full Name</label>
+                    <input type="text" id="fullName" placeholder="Ravi Kumar" required />
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="you@example.com" required />
+                </div>
+            </div>
+
+            <div class="grid2">
+                <div>
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="••••••••" required />
+                </div>
+                <div>
+                    <label>Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="••••••••" required />
+                </div>
+            </div>
+
+            <label>Role</label>
+            <select id="role" required>
+                <option value="CAMPAIGN_DIRECTOR">Campaign Director (Admin)</option>
+                <option value="FIELD_ORGANIZER">Field Organizer</option>
+                <option value="OUTREACH_VOLUNTEER">Outreach Volunteer</option>
+            </select>
+
+            <button type="submit" class="btn-primary full">Register</button>
+        </form>
+
+        <div id="formMsg" class="msg"></div>
+
+        <p class="alt">Already have an account? <a href="../login/login.html">Login here</a></p>
+    </div>
+</div>
+
+<script src="register.js"></script>
+</body>
+</html>
